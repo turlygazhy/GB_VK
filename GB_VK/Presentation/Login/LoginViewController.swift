@@ -34,14 +34,50 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "loginSegue" {
+            let loginText = loginTextField.text!
+            let passwordText = passwordTextField.text!
+            
+            print("login \(loginText), password \(passwordText)")
+            
+            if loginText == "1" && passwordText == "1" {
+                print("Success login")
+                return true
+            } else {
+                print("Incorrect login or password")
+                showAlert(title: "Error", message: "Incorrect login or password")
+                return false
+            }
+        }
+        return true
+    }
+    
+    @IBAction func logout(_ segue: UIStoryboardSegue) {
+        print("logout")
+        passwordTextField.text = ""
+        loginTextField.text = ""
+    }
+    
     @objc func hideKeyboard() {
         self.scrollView?.endEditing(true)
     }
     
     @IBAction private func loginButtonPressed(_ sender: UIButton) {
-        let loginText = loginTextField.text!
-        let passwordText = passwordTextField.text!
-        print("login \(loginText), password \(passwordText)")
+        
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
+            guard let self = self else {return}
+            self.passwordTextField.text = ""
+            self.loginTextField.text = ""
+        }
+        
+        alertController.addAction(closeAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc func keyboardWasShown(notification: Notification) {
