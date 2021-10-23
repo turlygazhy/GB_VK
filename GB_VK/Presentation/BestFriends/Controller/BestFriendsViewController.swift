@@ -11,10 +11,12 @@ class BestFriendsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let friends = ["Ivan", "Sergey", "Lena"]
+    let friends = [Friend(name: "Gena", ava: UIImage(named: "ggg")!, photos: [UIImage(named: "ggg")!]), Friend(name: "Khabib", ava: UIImage(named: "Habib")!, photos: [UIImage(named: "Habib")!]), Friend(name: "Mike", ava: UIImage(named: "Mike")!, photos: [UIImage(named: "Mike")!])]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -26,7 +28,7 @@ class BestFriendsViewController: UIViewController {
             let indexSelectCell = tableView.indexPathForSelectedRow?.row
             else { return }
             
-            destinationViewController.title = friends[indexSelectCell]
+            destinationViewController.title = friends[indexSelectCell].name
         }
     }
     
@@ -38,8 +40,9 @@ extension BestFriendsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BestFriendsTableViewCell.identifier) as! BestFriendsTableViewCell
-        cell.configure(friendAvaImageName: "vk-1", title: friends[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        cell.configure(friend: friends[indexPath.row])
+        
         return cell
     }
     
