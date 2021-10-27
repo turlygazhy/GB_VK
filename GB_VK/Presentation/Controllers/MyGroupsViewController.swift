@@ -11,7 +11,8 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    let myGroups = [Group(title: "GB", ava: UIImage(named: "gb")!), Group(title: "HP", ava: UIImage(named: "hp")!), Group(title: "apple", ava: UIImage(named: "apple")!)]
+    var myGroups = [Group]()
+    let fromAllGroupsToMyGoupsSegue = "fromAllGroupsToMyGoups"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,28 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
         cell.configure(group: myGroups[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
+    func isGroupExist(group: Group) -> Bool {
+        myGroups.contains { sourceGroup in
+            sourceGroup.title == group.title
+        }
+    }
+    
+    @IBAction func unwindSegueToMyGroup(segue: UIStoryboardSegue){
+        if segue.identifier == fromAllGroupsToMyGoupsSegue,
+           let sourceVC = segue.source as? AllGroupsViewController,
+           let selectedGroup = sourceVC.selectedGroup
+        {
+            if !isGroupExist(group: selectedGroup) {
+                self.myGroups.append(selectedGroup)
+            }
+            tableView.reloadData()
+        }
     }
     
 }

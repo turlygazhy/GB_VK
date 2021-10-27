@@ -7,42 +7,38 @@
 
 import UIKit
 
-class FriendPageViewController: UIViewController {
+class GalleryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let reuseIdentifierFriendCell = "FriendCollectionViewCell"
+    var photos = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(UINib(nibName: "FriendCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifierFriendCell)
+        collectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
     }
     
 }
 
-extension FriendPageViewController: UICollectionViewDelegateFlowLayout {
+extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        let width = collectionView.bounds.width / 2 - 10
+        return CGSize(width: width, height: width)
     }
 }
 
-extension FriendPageViewController: UICollectionViewDataSource {
+extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        100
+        photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierFriendCell, for: indexPath) as! FriendCollectionViewCell
-        if indexPath.row % 2 == 0 {
-            cell.configure(image: UIImage(named: "vk-1"))
-        } else {
-            cell.configure(image: UIImage(named: "logo-instagram"))
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollectionViewCell
+        cell.configure(photo: photos[indexPath.row])
         return cell
     }
     
