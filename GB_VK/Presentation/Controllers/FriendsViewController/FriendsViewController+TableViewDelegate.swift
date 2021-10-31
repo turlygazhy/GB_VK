@@ -10,9 +10,7 @@ import UIKit
 extension FriendsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tempRow = indexPath.row//todo remove line
-        let tempSection = indexPath.section//todo
-        performSegue(withIdentifier: openFriendGallerySegueName, sender: friends[indexPath.row])
+       performSegue(withIdentifier: openFriendGallerySegueName, sender: arrayByLetter(sourceArray: friends, letter: arrayLetter(sourceArray: friends)[indexPath.section])[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
