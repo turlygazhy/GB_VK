@@ -24,6 +24,14 @@ class LoginViewController: UIViewController {
         addShadow(view: passwordTextField)
         addShadow(view: loginButton)
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemGreen.cgColor, UIColor.systemRed.cgColor, UIColor.white.cgColor]
+        gradientLayer.locations = [0, 0.5, 1]
+        gradientLayer.startPoint = CGPoint.zero
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.zPosition = -1
+        self.view.layer.addSublayer(gradientLayer)
     }
     
     func addShadow(view: UIView) {
@@ -50,9 +58,9 @@ class LoginViewController: UIViewController {
         if identifier == "loginSegue" {
 //            let loginText = loginTextField.text!
 //            let passwordText = passwordTextField.text!
-//            
+//
 //            print("login \(loginText), password \(passwordText)")
-//            
+//
 //            if loginText == "1" && passwordText == "1" {
 //                print("Success login")
 //                return true
