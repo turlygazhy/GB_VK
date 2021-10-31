@@ -19,6 +19,18 @@ class LoginViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         scrollView?.addGestureRecognizer(tapGesture)
+        
+        addShadow(view: loginTextField)
+        addShadow(view: passwordTextField)
+        addShadow(view: loginButton)
+        
+    }
+    
+    func addShadow(view: UIView) {
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 10, height: 10)
+        view.layer.shadowRadius = 10
+        view.layer.shadowOpacity = 0.5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,19 +48,19 @@ class LoginViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "loginSegue" {
-            let loginText = loginTextField.text!
-            let passwordText = passwordTextField.text!
-            
-            print("login \(loginText), password \(passwordText)")
-            
-            if loginText == "1" && passwordText == "1" {
-                print("Success login")
-                return true
-            } else {
-                print("Incorrect login or password")
-                showAlert(title: "Error", message: "Incorrect login or password")
-                return false
-            }
+//            let loginText = loginTextField.text!
+//            let passwordText = passwordTextField.text!
+//            
+//            print("login \(loginText), password \(passwordText)")
+//            
+//            if loginText == "1" && passwordText == "1" {
+//                print("Success login")
+//                return true
+//            } else {
+//                print("Incorrect login or password")
+//                showAlert(title: "Error", message: "Incorrect login or password")
+//                return false
+//            }
         }
         return true
     }

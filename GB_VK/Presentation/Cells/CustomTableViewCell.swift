@@ -11,10 +11,24 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    var liked = false
+    
+    @IBAction func pressLike(_ sender: Any) {
+        if liked {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+        liked = !liked
+    }
     
     override func prepareForReuse() {
         avatarImageView.image = nil
         titleLabel.text = nil
+        liked = false
+        likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     
     func configure(friend: Friend) {
@@ -29,7 +43,6 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -207,9 +207,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-bu-d44">
-                                <rect key="frame" x="56" y="34" width="71" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-bu-d44">
+                                <rect key="frame" x="20" y="50" width="71" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="logout"/>
                                 <connections>
@@ -219,6 +218,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tbi-nI-Y1S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ef0-bu-d44" firstAttribute="leading" secondItem="Tbi-nI-Y1S" secondAttribute="leading" constant="20" id="Fqp-pS-eGc"/>
+                            <constraint firstItem="Ef0-bu-d44" firstAttribute="top" secondItem="Tbi-nI-Y1S" secondAttribute="top" constant="50" id="VNQ-cp-Hrc"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Menu" image="line.horizontal.3" catalog="system" id="U32-mj-Hg6"/>
                 </viewController>
@@ -255,7 +258,7 @@
             </objects>
             <point key="canvasLocation" x="-394" y="1604"/>
         </scene>
-        <!--Friends-->
+        <!--My fiends-->
         <scene sceneID="7e3-jw-4Xo">
             <objects>
                 <viewController id="LTy-8G-VFK" customClass="FriendsViewController" customModule="GB_VK" customModuleProvider="target" sceneMemberID="viewController">
@@ -264,20 +267,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="73b-fb-bdP">
-                                <rect key="frame" x="0.0" y="56" width="414" height="757"/>
+                                <rect key="frame" x="0.0" y="107" width="414" height="706"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mU6-I8-kAm">
+                                <rect key="frame" x="0.0" y="56" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AGs-qb-0oo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mU6-I8-kAm" firstAttribute="top" secondItem="AGs-qb-0oo" secondAttribute="top" id="4rS-0k-irp"/>
+                            <constraint firstItem="mU6-I8-kAm" firstAttribute="trailing" secondItem="AGs-qb-0oo" secondAttribute="trailing" id="FMD-NI-8ko"/>
+                            <constraint firstItem="73b-fb-bdP" firstAttribute="top" secondItem="mU6-I8-kAm" secondAttribute="bottom" id="Kof-Vo-Mb5"/>
                             <constraint firstItem="AGs-qb-0oo" firstAttribute="bottom" secondItem="73b-fb-bdP" secondAttribute="bottom" id="XWj-b5-efJ"/>
+                            <constraint firstItem="mU6-I8-kAm" firstAttribute="leading" secondItem="AGs-qb-0oo" secondAttribute="leading" id="hJ4-3a-Ak7"/>
                             <constraint firstItem="AGs-qb-0oo" firstAttribute="trailing" secondItem="73b-fb-bdP" secondAttribute="trailing" id="s0a-2u-o7o"/>
-                            <constraint firstItem="73b-fb-bdP" firstAttribute="top" secondItem="AGs-qb-0oo" secondAttribute="top" id="uqT-j0-r0V"/>
                             <constraint firstItem="73b-fb-bdP" firstAttribute="leading" secondItem="AGs-qb-0oo" secondAttribute="leading" id="vIz-Mk-Sej"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Friends" id="TJh-x4-as9">
+                    <navigationItem key="navigationItem" title="My fiends" id="TJh-x4-as9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cfh-EG-RJn">
                             <connections>
                                 <segue destination="su4-cm-gAO" kind="show" id="ChF-D1-Nqx"/>
@@ -285,6 +295,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="mU6-I8-kAm" id="lKQ-5W-Cee"/>
                         <outlet property="tableView" destination="73b-fb-bdP" id="gE4-sj-9uM"/>
                         <segue destination="YVc-18-rsg" kind="show" identifier="openFriendGallery" id="B2q-gk-0hI"/>
                     </connections>
