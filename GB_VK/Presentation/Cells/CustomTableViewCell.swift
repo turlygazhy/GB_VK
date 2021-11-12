@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -44,11 +44,35 @@ class CustomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
+    @IBAction func pressAvatarButton(_ sender: Any) {
+        let scale = CGFloat(10)
+        
+        UIView.animate(withDuration: 1) { [weak self] in
+            guard let self = self else {return}
+            
+            self.avatarImageView.frame = CGRect(x: self.avatarImageView.frame.origin.x + scale/2, y: self.avatarImageView.frame.origin.y + scale/2, width: self.avatarImageView.frame.width - scale, height: self.avatarImageView.frame.height - scale)
+        } completion: { isSuccess in
+            UIView.animate(withDuration: 1,
+                           delay: 0,
+                           usingSpringWithDamping: 0.3,
+                           initialSpringVelocity: 0.7,
+                           options: []) { [weak self] in
+                guard let self = self else {return}
+                
+                self.avatarImageView.frame = CGRect(x: self.avatarImageView.frame.origin.x - scale/2, y: self.avatarImageView.frame.origin.y - scale/2, width: self.avatarImageView.frame.width + scale, height: self.avatarImageView.frame.height + scale)
+            } completion: { _ in
+            }
+
+        }
+        
+        
+        
+    }
 }

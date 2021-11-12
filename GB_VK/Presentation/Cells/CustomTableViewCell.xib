@@ -14,18 +14,18 @@
         <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KGk-i7-Jjw" customClass="CustomTableViewCell" customModule="GB_VK" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcm-AX-2bd">
-                        <rect key="frame" x="10" y="10" width="24" height="24"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcm-AX-2bd">
+                        <rect key="frame" x="10" y="10" width="23" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="jcm-AX-2bd" secondAttribute="height" multiplier="1:1" id="Tis-vL-Q3w"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftp-b9-jdS">
-                        <rect key="frame" x="49" y="10" width="256" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftp-b9-jdS">
+                        <rect key="frame" x="48" y="10" width="257" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,18 +43,30 @@
                             <action selector="pressLike:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RY1-5X-uO5"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oz0-DQ-HLJ" userLabel="coverAvaButton">
+                        <rect key="frame" x="-11" y="6.5" width="65" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="pressAvatarButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sa1-hY-erP"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Ftp-b9-jdS" secondAttribute="trailing" constant="15" id="8ad-EE-CxC"/>
                     <constraint firstItem="Ftp-b9-jdS" firstAttribute="leading" secondItem="jcm-AX-2bd" secondAttribute="trailing" constant="15" id="9bl-vm-TuW"/>
                     <constraint firstItem="Ftp-b9-jdS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ATt-1r-5dq"/>
+                    <constraint firstItem="Oz0-DQ-HLJ" firstAttribute="height" secondItem="jcm-AX-2bd" secondAttribute="height" multiplier="1.29167" id="BYX-hM-RhP"/>
                     <constraint firstItem="jcm-AX-2bd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ETU-5M-hd6"/>
                     <constraint firstAttribute="bottom" secondItem="CuB-ws-L05" secondAttribute="bottom" constant="4" id="MOo-f8-JFt"/>
                     <constraint firstItem="jcm-AX-2bd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="QVN-Mj-F7C"/>
                     <constraint firstAttribute="trailing" secondItem="CuB-ws-L05" secondAttribute="trailing" constant="5" id="aKq-mZ-9r6"/>
                     <constraint firstItem="Ftp-b9-jdS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="c25-Jf-rUm"/>
                     <constraint firstItem="CuB-ws-L05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="eNy-V4-bqh"/>
+                    <constraint firstItem="Oz0-DQ-HLJ" firstAttribute="centerY" secondItem="jcm-AX-2bd" secondAttribute="centerY" id="iGz-vA-ACT"/>
                     <constraint firstItem="jcm-AX-2bd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ivl-KI-A6V"/>
+                    <constraint firstItem="Oz0-DQ-HLJ" firstAttribute="width" secondItem="jcm-AX-2bd" secondAttribute="width" multiplier="2.79167" id="v3V-zO-48p"/>
+                    <constraint firstItem="Oz0-DQ-HLJ" firstAttribute="centerX" secondItem="jcm-AX-2bd" secondAttribute="centerX" id="ztj-xz-9qz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

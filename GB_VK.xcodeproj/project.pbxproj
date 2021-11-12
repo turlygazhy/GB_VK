@@ -27,6 +27,8 @@
 		FB733BD126D3BCC700193017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB733BCF26D3BCC700193017 /* Main.storyboard */; };
 		FB733BD326D3BCC800193017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB733BD226D3BCC800193017 /* Assets.xcassets */; };
 		FB733BD626D3BCC800193017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB733BD426D3BCC800193017 /* LaunchScreen.storyboard */; };
+		FBA90A5C273EC36400FF4F33 /* GalleryHorisontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */; };
+		FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		FB733BD226D3BCC800193017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB733BD526D3BCC800193017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB733BD726D3BCC800193017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryHorisontalView.xib; sourceTree = "<group>"; };
+		FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHorisontalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +92,8 @@
 		FB44F6512726D280000BB93B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FBA90A59273EC33300FF4F33 /* Gallery */,
 				FB44F64B27245AD5000BB93B /* AllGroupsViewController.swift */,
-				FB44F631271EDE01000BB93B /* GalleryViewController.swift */,
 				FB5E830726F4B27A000DFC8B /* MyGroupsViewController.swift */,
 				FB6E0A8C272AE29600691A08 /* FriendsViewController */,
 				FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */,
@@ -173,6 +177,16 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		FBA90A59273EC33300FF4F33 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				FB44F631271EDE01000BB93B /* GalleryViewController.swift */,
+				FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */,
+				FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +246,7 @@
 			files = (
 				FB44F6502726D140000BB93B /* GalleryCollectionViewCell.xib in Resources */,
 				FB733BD626D3BCC800193017 /* LaunchScreen.storyboard in Resources */,
+				FBA90A5C273EC36400FF4F33 /* GalleryHorisontalView.xib in Resources */,
 				FB733BD326D3BCC800193017 /* Assets.xcassets in Resources */,
 				FB44F6492722DF57000BB93B /* CustomTableViewCell.xib in Resources */,
 				FB733BD126D3BCC700193017 /* Main.storyboard in Resources */,
@@ -249,6 +264,7 @@
 				FB6E0A8B272AE0A700691A08 /* FriendsViewController+FillData.swift in Sources */,
 				FB44F64F2726D140000BB93B /* GalleryCollectionViewCell.swift in Sources */,
 				FB5E830826F4B27A000DFC8B /* MyGroupsViewController.swift in Sources */,
+				FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */,
 				FB6E0A89272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift in Sources */,
 				FB44F64C27245AD5000BB93B /* AllGroupsViewController.swift in Sources */,
 				FB6E5A4926E77DB9001B0FF3 /* LoginViewController.swift in Sources */,
