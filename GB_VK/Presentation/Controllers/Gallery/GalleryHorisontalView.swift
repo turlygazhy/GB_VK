@@ -13,14 +13,7 @@ import UIKit
     @IBInspectable var activeIndicatorColor: UIColor = UIColor.black
     
     private var view: UIView?
-    
-    
     private var interactiveAnimator: UIViewPropertyAnimator!
-    
-    
-    
-    
-    
     private var mainImageView = UIImageView() //UIView()
     private var secondaryImageView = UIImageView() //UIView()
     private var images = [UIImage]()
@@ -38,6 +31,10 @@ import UIKit
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+    
+    func getCurrentImage() -> UIImage {
+        images[currentIndex]
     }
     
     private func loadFromNib() -> UIView {

@@ -16,6 +16,7 @@
 		FB44F64F2726D140000BB93B /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44F64D2726D140000BB93B /* GalleryCollectionViewCell.swift */; };
 		FB44F6502726D140000BB93B /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB44F64E2726D140000BB93B /* GalleryCollectionViewCell.xib */; };
 		FB5E830826F4B27A000DFC8B /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5E830726F4B27A000DFC8B /* MyGroupsViewController.swift */; };
+		FB63FD55274951900061002F /* AnimationOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FD54274951900061002F /* AnimationOpen.swift */; };
 		FB6DC9E326F2081600AAD56D /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DC9E226F2081600AAD56D /* FriendsViewController.swift */; };
 		FB6E0A87272AE05C00691A08 /* FriendsViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0A86272AE05C00691A08 /* FriendsViewController+TableViewDelegate.swift */; };
 		FB6E0A89272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0A88272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift */; };
@@ -29,6 +30,7 @@
 		FB733BD626D3BCC800193017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB733BD426D3BCC800193017 /* LaunchScreen.storyboard */; };
 		FBA90A5C273EC36400FF4F33 /* GalleryHorisontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */; };
 		FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */; };
+		FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 		FB44F64D2726D140000BB93B /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB44F64E2726D140000BB93B /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB5E830726F4B27A000DFC8B /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
+		FB63FD54274951900061002F /* AnimationOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationOpen.swift; sourceTree = "<group>"; };
 		FB6DC9E226F2081600AAD56D /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		FB6E0A86272AE05C00691A08 /* FriendsViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		FB6E0A88272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		FB733BD726D3BCC800193017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryHorisontalView.xib; sourceTree = "<group>"; };
 		FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHorisontalView.swift; sourceTree = "<group>"; };
+		FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+FullScreenView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +100,6 @@
 				FB44F64B27245AD5000BB93B /* AllGroupsViewController.swift */,
 				FB5E830726F4B27A000DFC8B /* MyGroupsViewController.swift */,
 				FB6E0A8C272AE29600691A08 /* FriendsViewController */,
-				FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				FB44F6512726D280000BB93B /* Controllers */,
+				FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */,
+				FB63FD54274951900061002F /* AnimationOpen.swift */,
 				FB44F6432722DF26000BB93B /* Cells */,
 			);
 			path = Presentation;
@@ -183,6 +188,7 @@
 				FB44F631271EDE01000BB93B /* GalleryViewController.swift */,
 				FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */,
 				FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */,
+				FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				FB6E0A8B272AE0A700691A08 /* FriendsViewController+FillData.swift in Sources */,
 				FB44F64F2726D140000BB93B /* GalleryCollectionViewCell.swift in Sources */,
 				FB5E830826F4B27A000DFC8B /* MyGroupsViewController.swift in Sources */,
+				FB63FD55274951900061002F /* AnimationOpen.swift in Sources */,
 				FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */,
 				FB6E0A89272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift in Sources */,
 				FB44F64C27245AD5000BB93B /* AllGroupsViewController.swift in Sources */,
@@ -273,6 +280,7 @@
 				FB6DC9E326F2081600AAD56D /* FriendsViewController.swift in Sources */,
 				FB44F6482722DF57000BB93B /* CustomTableViewCell.swift in Sources */,
 				FB6E0A8E272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift in Sources */,
+				FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */,
 				FB733BCC26D3BCC700193017 /* SceneDelegate.swift in Sources */,
 				FB44F632271EDE01000BB93B /* GalleryViewController.swift in Sources */,
 				FB44F6402722DDEC000BB93B /* Friend.swift in Sources */,

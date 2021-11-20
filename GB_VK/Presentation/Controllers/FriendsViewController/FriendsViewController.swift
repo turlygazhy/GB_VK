@@ -26,6 +26,7 @@ class FriendsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        self.navigationController?.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,3 +61,13 @@ class FriendsViewController: UIViewController {
     
 }
 
+extension FriendsViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push {
+            return AnimationOpen()
+        }
+        return nil
+    }
+    
+}

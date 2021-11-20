@@ -13,10 +13,19 @@ class GalleryViewController: UIViewController {
     
     var photos = [UIImage]()
     
+    var fullScreenView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         galleryView.setImages(images: photos)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapToImage))
+        galleryView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func onTapToImage() {
+        showView(image: nil)//todo should not be nil
     }
     
 }
