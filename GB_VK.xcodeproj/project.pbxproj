@@ -23,6 +23,7 @@
 		FB6E0A8B272AE0A700691A08 /* FriendsViewController+FillData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0A8A272AE0A700691A08 /* FriendsViewController+FillData.swift */; };
 		FB6E0A8E272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0A8D272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift */; };
 		FB6E5A4926E77DB9001B0FF3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */; };
+		FB6FD113274CF17A0044DE40 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD112274CF17A0044DE40 /* Session.swift */; };
 		FB733BCA26D3BCC700193017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB733BC926D3BCC700193017 /* AppDelegate.swift */; };
 		FB733BCC26D3BCC700193017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB733BCB26D3BCC700193017 /* SceneDelegate.swift */; };
 		FB733BD126D3BCC700193017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB733BCF26D3BCC700193017 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		FB6E0A8A272AE0A700691A08 /* FriendsViewController+FillData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+FillData.swift"; sourceTree = "<group>"; };
 		FB6E0A8D272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FB6FD112274CF17A0044DE40 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FB733BC626D3BCC700193017 /* GB_VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB733BC926D3BCC700193017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB733BCB26D3BCC700193017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		FB6FD111274CF1640044DE40 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				FB6FD112274CF17A0044DE40 /* Session.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		FB733BBD26D3BCC600193017 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 		FB733BC826D3BCC700193017 /* GB_VK */ = {
 			isa = PBXGroup;
 			children = (
+				FB6FD111274CF1640044DE40 /* Session */,
 				FB44F63E2722DDCB000BB93B /* Model */,
 				FB6E5A4626E77D8E001B0FF3 /* Presentation */,
 				FB733BDD26D3BDB400193017 /* AppDelegate */,
@@ -277,6 +288,7 @@
 				FB6E5A4926E77DB9001B0FF3 /* LoginViewController.swift in Sources */,
 				FB6E0A87272AE05C00691A08 /* FriendsViewController+TableViewDelegate.swift in Sources */,
 				FB733BCA26D3BCC700193017 /* AppDelegate.swift in Sources */,
+				FB6FD113274CF17A0044DE40 /* Session.swift in Sources */,
 				FB6DC9E326F2081600AAD56D /* FriendsViewController.swift in Sources */,
 				FB44F6482722DF57000BB93B /* CustomTableViewCell.swift in Sources */,
 				FB6E0A8E272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift in Sources */,
