@@ -11,7 +11,6 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    var myGroups = [Group]()
     let fromAllGroupsToMyGoupsSegue = "fromAllGroupsToMyGoups"
     
     override func viewDidLoad() {
@@ -29,17 +28,17 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
             let indexSelectCell = tableView.indexPathForSelectedRow?.row
             else { return }
             
-            destinationViewController.title = myGroups[indexSelectCell].title
+//            destinationViewController.title = myGroups[indexSelectCell].title
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myGroups.count
+        0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        cell.configure(group: myGroups[indexPath.row])
+        
         return cell
     }
     
@@ -47,22 +46,16 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         100
     }
     
-    func isGroupExist(group: Group) -> Bool {
-        myGroups.contains { sourceGroup in
-            sourceGroup.title == group.title
-        }
-    }
-    
     @IBAction func unwindSegueToMyGroup(segue: UIStoryboardSegue){
-        if segue.identifier == fromAllGroupsToMyGoupsSegue,
-           let sourceVC = segue.source as? AllGroupsViewController,
-           let selectedGroup = sourceVC.selectedGroup
-        {
-            if !isGroupExist(group: selectedGroup) {
-                self.myGroups.append(selectedGroup)
-            }
-            tableView.reloadData()
-        }
+//        if segue.identifier == fromAllGroupsToMyGoupsSegue,
+//           let sourceVC = segue.source as? AllGroupsViewController,
+//           let selectedGroup = sourceVC.selectedGroup
+//        {
+//            if !isGroupExist(group: selectedGroup) {
+//                self.myGroups.append(selectedGroup)
+//            }
+//            tableView.reloadData()
+//        }
     }
     
 }

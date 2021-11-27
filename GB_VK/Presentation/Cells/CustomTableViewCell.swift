@@ -31,15 +31,15 @@ class CustomTableViewCell: UITableViewCell {
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     
-    func configure(friend: Friend) {
-        avatarImageView.image = friend.ava
-        titleLabel.text = friend.name
-    }
-    
-    func configure(group: Group) {
-        avatarImageView.image = group.ava
-        titleLabel.text = group.title
-    }
+//    func configure(friend: Friend) {
+//        avatarImageView.image = friend.ava
+//        titleLabel.text = friend.name
+//    }
+//
+//    func configure(group: Group) {
+//        avatarImageView.image = group.ava
+//        titleLabel.text = group.title
+//    } todo
     
     override func awakeFromNib() {
         super.awakeFromNib()

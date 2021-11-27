@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FB44F632271EDE01000BB93B /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44F631271EDE01000BB93B /* GalleryViewController.swift */; };
-		FB44F6402722DDEC000BB93B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44F63F2722DDEC000BB93B /* Friend.swift */; };
-		FB44F6422722DE44000BB93B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44F6412722DE44000BB93B /* Group.swift */; };
 		FB44F6482722DF57000BB93B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44F6462722DF57000BB93B /* CustomTableViewCell.swift */; };
 		FB44F6492722DF57000BB93B /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB44F6472722DF57000BB93B /* CustomTableViewCell.xib */; };
 		FB44F64C27245AD5000BB93B /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44F64B27245AD5000BB93B /* AllGroupsViewController.swift */; };
@@ -37,8 +35,6 @@
 
 /* Begin PBXFileReference section */
 		FB44F631271EDE01000BB93B /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		FB44F63F2722DDEC000BB93B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		FB44F6412722DE44000BB93B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FB44F6462722DF57000BB93B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		FB44F6472722DF57000BB93B /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		FB44F64B27245AD5000BB93B /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 		FB44F63E2722DDCB000BB93B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FB44F63F2722DDEC000BB93B /* Friend.swift */,
-				FB44F6412722DE44000BB93B /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB44F6422722DE44000BB93B /* Group.swift in Sources */,
 				FB6E0A8B272AE0A700691A08 /* FriendsViewController+FillData.swift in Sources */,
 				FB44F64F2726D140000BB93B /* GalleryCollectionViewCell.swift in Sources */,
 				FB5E830826F4B27A000DFC8B /* MyGroupsViewController.swift in Sources */,
@@ -307,7 +300,6 @@
 				FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */,
 				FB733BCC26D3BCC700193017 /* SceneDelegate.swift in Sources */,
 				FB44F632271EDE01000BB93B /* GalleryViewController.swift in Sources */,
-				FB44F6402722DDEC000BB93B /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
