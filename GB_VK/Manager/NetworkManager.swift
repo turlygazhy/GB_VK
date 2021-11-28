@@ -18,7 +18,7 @@ class NetworkManager {
     static let API_GET_GROUPS = "groups.get"
     static let API_GROUPS_SEARCH = "groups.search"
     
-    static func getFriends() { //todo will return object very soon
+    static func getFriends(controller: FriendsViewController) {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = HTTPS_SCHEME
         urlConstructor.host = VK_HOST
@@ -27,7 +27,7 @@ class NetworkManager {
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "v", value: VK_VERSION),
             URLQueryItem(name: "count", value: "5"),
-            URLQueryItem(name: "fields", value: "nickname")
+            URLQueryItem(name: "fields", value: "nickname, photo_100")
         ]
         
         let configuration = URLSessionConfiguration.default
@@ -37,9 +37,10 @@ class NetworkManager {
         
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
             do {
-                let friends = try JSONDecoder().decode(FriendsResponseParent.self, from: data!)
+                let friendsResponse = try JSONDecoder().decode(FriendsResponseParent.self, from: data!)
                 print("LOADED FRIENDS")
-                print(friends)
+                print(friendsResponse)
+                    controller.setFriends(friends: friendsResponse.response.items)
             } catch (let error) {
                 print(error)
             }

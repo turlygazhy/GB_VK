@@ -14,10 +14,12 @@ class FriendsViewController: UIViewController {
     
     let openFriendGallerySegueName = "openFriendGallery"
     
+    var friends = [User]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadFriends()
+        NetworkManager.getFriends(controller: self)
         
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -26,12 +28,19 @@ class FriendsViewController: UIViewController {
         self.navigationController?.delegate = self
     }
     
+    func setFriends(friends: [User]) {
+        DispatchQueue.main.async {
+            self.friends = friends
+            self.tableView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == openFriendGallerySegueName,todo
-//           let destinationVC = segue.destination as? GalleryViewController,
-//           let friend = sender as? Friend {
-//            destinationVC.photos = friend.photos
-//        }
+        //        if segue.identifier == openFriendGallerySegueName,todo
+        //           let destinationVC = segue.destination as? GalleryViewController,
+        //           let friend = sender as? Friend {
+        //            destinationVC.photos = friend.photos
+        //        }
     }
     
 }

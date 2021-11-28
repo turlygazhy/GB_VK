@@ -31,10 +31,24 @@ class CustomTableViewCell: UITableViewCell {
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     
-//    func configure(friend: Friend) {
-//        avatarImageView.image = friend.ava
-//        titleLabel.text = friend.name
-//    }
+    func configure(friend: User) {
+        titleLabel.text = friend.first_name + " " + friend.last_name
+        
+        if friend.photo_100 == nil {
+            return
+        }
+        
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: URL(string: friend.photo_100!)!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self!.avatarImageView.image = image
+                    }
+                }
+            }
+        }
+        
+    }
 //
 //    func configure(group: Group) {
 //        avatarImageView.image = group.ava

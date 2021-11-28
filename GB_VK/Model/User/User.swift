@@ -11,4 +11,5 @@ class User: Codable {
     let id: Int
     let first_name: String
     let last_name: String
+    let photo_100: String?
 }

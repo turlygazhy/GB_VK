@@ -10,12 +10,12 @@ import UIKit
 extension FriendsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0 //todo
+        friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-//        cell.configure(friend: arrayByLetter(sourceArray: friends, letter: arrayLetter(sourceArray: friends)[indexPath.section])[indexPath.row]) todo
+        cell.configure(friend: friends[indexPath.row])
         
         return cell
     }
