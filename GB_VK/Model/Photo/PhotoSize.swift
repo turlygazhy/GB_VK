@@ -11,7 +11,7 @@ import Realm
 
 @objcMembers
 class PhotoSize: Object, Codable {
-    dynamic let height: Int
-    dynamic let width: Int
-    dynamic let url: String
+    dynamic var height: Int
+    dynamic var width: Int
+    dynamic var url: String
 }

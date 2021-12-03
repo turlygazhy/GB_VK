@@ -11,5 +11,5 @@ import Realm
 
 @objcMembers
 class PhotosResponseContainer: Object, Codable {
-    dynamic let response: PhotosResponse
+    dynamic var response: PhotosResponse? = nil
 }

@@ -40,7 +40,7 @@ class NetworkManager {
                 let friendsResponse = try JSONDecoder().decode(FriendsResponseContainer.self, from: data!)
                 print("LOADED FRIENDS")
                 print(friendsResponse)
-                    controller.setFriends(friends: friendsResponse.response.items)
+                controller.setFriends(friends: Array(friendsResponse.response!.items))
             } catch (let error) {
                 print(error)
             }

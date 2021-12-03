@@ -11,8 +11,8 @@ import Realm
 
 @objcMembers
 class User: Object, Codable {
-    dynamic let id: Int
-    dynamic let first_name: String
-    dynamic let last_name: String
-    dynamic let photo_100: String?
+    dynamic var id: Int
+    dynamic var first_name: String
+    dynamic var last_name: String
+    dynamic var photo_100: String?
 }

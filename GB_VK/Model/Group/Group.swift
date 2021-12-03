@@ -11,9 +11,9 @@ import Realm
 
 @objcMembers
 class Group: Object, Codable {
-    dynamic let groupDescription: String?
-    dynamic let name: String
-    dynamic let photoUrl: String
+    dynamic var groupDescription: String?
+    dynamic var name: String
+    dynamic var photoUrl: String
     
     enum CodingKeys: String, CodingKey {
         case groupDescription = "description"

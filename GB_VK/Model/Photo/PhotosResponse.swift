@@ -11,5 +11,17 @@ import Realm
 
 @objcMembers
 class PhotosResponse: Object, Codable {
-    dynamic let items: [Photo]
+    dynamic var items = List<Photo>()
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let itemsList = try container.decode([Photo].self, forKey: .items)
+        items.append(objectsIn: itemsList)
+        super.init()
+    }
+    
+    required override init() {
+        super.init()
+    }
 }

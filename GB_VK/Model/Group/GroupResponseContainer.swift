@@ -11,5 +11,5 @@ import Realm
 
 @objcMembers
 class GroupResponseContainer: Object, Codable {
-    dynamic let response: GroupResponse
+    dynamic var response: GroupResponse? = nil
 }

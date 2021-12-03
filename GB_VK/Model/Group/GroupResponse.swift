@@ -11,5 +11,17 @@ import Realm
 
 @objcMembers
 class GroupResponse: Object, Codable {
-    dynamic let items: [Group]
+    dynamic var items = List<Group>()
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let itemsList = try container.decode([Group].self, forKey: .items)
+        items.append(objectsIn: itemsList)
+        super.init()
+    }
+
+    required override init() {
+        super.init()
+    }
 }
