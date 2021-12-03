@@ -1,5 +1,5 @@
 //
-//  Photo.swift
+//  FriendsResponseParent.swift
 //  GB_VK
 //
 //  Created by Ерасыл Турлыгажы on 27.11.2021.
@@ -10,6 +10,6 @@ import RealmSwift
 import Realm
 
 @objcMembers
-class Photo: Object, Codable {
-    dynamic let sizes: [PhotoSize]
+class FriendsResponseContainer: Object, Codable {
+    dynamic let response: FriendsResponse
 }

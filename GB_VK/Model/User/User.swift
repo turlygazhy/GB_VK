@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class User: Codable {
-    let id: Int
-    let first_name: String
-    let last_name: String
-    let photo_100: String?
+@objcMembers
+class User: Object, Codable {
+    dynamic let id: Int
+    dynamic let first_name: String
+    dynamic let last_name: String
+    dynamic let photo_100: String?
 }

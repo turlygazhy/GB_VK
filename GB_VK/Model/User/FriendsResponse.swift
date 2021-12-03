@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class FriendsResponse: Codable {
-    let count: Int
-    let items: [User]
+@objcMembers
+class FriendsResponse: Object, Codable {
+    dynamic let count: Int
+    dynamic let items: [User]
 }

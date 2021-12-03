@@ -37,7 +37,7 @@ class NetworkManager {
         
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
             do {
-                let friendsResponse = try JSONDecoder().decode(FriendsResponseParent.self, from: data!)
+                let friendsResponse = try JSONDecoder().decode(FriendsResponseContainer.self, from: data!)
                 print("LOADED FRIENDS")
                 print(friendsResponse)
                     controller.setFriends(friends: friendsResponse.response.items)
@@ -69,7 +69,7 @@ class NetworkManager {
         
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
             do {
-                let photos = try JSONDecoder().decode(PhotosResponseParent.self, from: data!)
+                let photos = try JSONDecoder().decode(PhotosResponseContainer.self, from: data!)
                 print("LOADED PHOTOS")
                 print(photos)
             } catch (let error) {
@@ -103,7 +103,7 @@ class NetworkManager {
         
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
             do {
-                let groups = try JSONDecoder().decode(GroupResponseParent.self, from: data!)
+                let groups = try JSONDecoder().decode(GroupResponseContainer.self, from: data!)
                 print("LOADED GROUPS")
                 print(groups)
             } catch (let error) {
@@ -133,7 +133,7 @@ class NetworkManager {
         
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
             do {
-                let groups = try JSONDecoder().decode(GroupResponseParent.self, from: data!)
+                let groups = try JSONDecoder().decode(GroupResponseContainer.self, from: data!)
                 print("LOADED GROUPS FOR QUERY \(query)")
                 print(groups)
             } catch (let error) {

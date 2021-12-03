@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class PhotosResponseParent: Codable {
-    let response: PhotosResponse
+@objcMembers
+class PhotosResponseContainer: Object, Codable {
+    dynamic let response: PhotosResponse
 }

@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class GroupResponseParent: Codable {
-    let response: GroupResponse
+@objcMembers
+class GroupResponseContainer: Object, Codable {
+    dynamic let response: GroupResponse
 }
