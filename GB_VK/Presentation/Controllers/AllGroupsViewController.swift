@@ -11,10 +11,7 @@ class AllGroupsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let groups = [Group(title: "GB", ava: UIImage(named: "gb")!), Group(title: "HP", ava: UIImage(named: "hp")!), Group(title: "apple", ava: UIImage(named: "apple")!), Group(title: "Mail.ru", ava: UIImage(named: "mailru")!)]
-    
     let fromAllGroupsToMyGoupsSegue = "fromAllGroupsToMyGoups"
-    var selectedGroup: Group?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +24,16 @@ class AllGroupsViewController: UIViewController {
 
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        groups.count
+       0 //todo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        cell.configure(group: groups[indexPath.row])
+//        cell.configure(group: groups[indexPath.row]) todo
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedGroup = groups[indexPath.row]
         performSegue(withIdentifier: fromAllGroupsToMyGoupsSegue, sender: nil)
     }
     

@@ -18,7 +18,7 @@ class NetworkManager {
     static let API_GET_GROUPS = "groups.get"
     static let API_GROUPS_SEARCH = "groups.search"
     
-    static func getFriends() -> Any { //todo will return object very soon
+    static func getFriends(controller: FriendsViewController) {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = HTTPS_SCHEME
         urlConstructor.host = VK_HOST
@@ -27,7 +27,7 @@ class NetworkManager {
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "v", value: VK_VERSION),
             URLQueryItem(name: "count", value: "5"),
-            URLQueryItem(name: "fields", value: "nickname")
+            URLQueryItem(name: "fields", value: "nickname, photo_100")
         ]
         
         let configuration = URLSessionConfiguration.default
@@ -35,15 +35,18 @@ class NetworkManager {
         
         print("url \(urlConstructor.url!)")
         
-        var json: Any = ""
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
-            json = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
-            print("LOADED FRIENDS")
-            print(json)
+            do {
+                let friendsResponse = try JSONDecoder().decode(FriendsResponseParent.self, from: data!)
+                print("LOADED FRIENDS")
+                print(friendsResponse)
+                    controller.setFriends(friends: friendsResponse.response.items)
+            } catch (let error) {
+                print(error)
+            }
         }
         
         task.resume()
-        return json //todo need to wait before json will be init
     }
     
     static func getPhotos() {//todo will return something
@@ -63,11 +66,18 @@ class NetworkManager {
         
         print("url \(urlConstructor.url!)")
         
-        var json: Any = ""
+        
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
-            json = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
-            print("LOADED PHOTOS")
-            print(json)
+            do {
+                let photos = try JSONDecoder().decode(PhotosResponseParent.self, from: data!)
+                print("LOADED PHOTOS")
+                print(photos)
+            } catch (let error) {
+                print(error)
+            }
+            
+            
+            
         }
         
         task.resume()
@@ -91,11 +101,14 @@ class NetworkManager {
         
         print("url \(urlConstructor.url!)")
         
-        var json: Any = ""
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
-            json = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
-            print("LOADED GROUPS")
-            print(json)
+            do {
+                let groups = try JSONDecoder().decode(GroupResponseParent.self, from: data!)
+                print("LOADED GROUPS")
+                print(groups)
+            } catch (let error) {
+                print(error)
+            }
         }
         
         task.resume()
@@ -117,11 +130,15 @@ class NetworkManager {
         
         print("url \(urlConstructor.url!)")
         
-        var json: Any = ""
+        
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
-            json = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.fragmentsAllowed)
-            print("LOADED GROUPS FOR QUERY \(query)")
-            print(json)
+            do {
+                let groups = try JSONDecoder().decode(GroupResponseParent.self, from: data!)
+                print("LOADED GROUPS FOR QUERY \(query)")
+                print(groups)
+            } catch (let error) {
+                print(error)
+            }
         }
         
         task.resume()

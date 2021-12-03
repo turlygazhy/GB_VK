@@ -10,13 +10,13 @@ import UIKit
 extension FriendsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            self.friends = savedFriends
-        } else {
-            self.friends = self.friends.filter { friend in
-                friend.name.localizedCaseInsensitiveContains(searchText)
-            }
-        }
-        self.tableView.reloadData()
+//        if searchText.isEmpty { todo
+//            self.friends = savedFriends
+//        } else {
+//            self.friends = self.friends.filter { friend in
+//                friend.name.localizedCaseInsensitiveContains(searchText)
+//            }
+//        }
+//        self.tableView.reloadData()
     }
 }
