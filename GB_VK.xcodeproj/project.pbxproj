@@ -41,7 +41,6 @@
 		FBA90A5C273EC36400FF4F33 /* GalleryHorisontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */; };
 		FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */; };
 		FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */; };
-		FBEB792827631E8E0084D6EE /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB792727631E8E0084D6EE /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +82,6 @@
 		FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryHorisontalView.xib; sourceTree = "<group>"; };
 		FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHorisontalView.swift; sourceTree = "<group>"; };
 		FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+FullScreenView.swift"; sourceTree = "<group>"; };
-		FBEB792727631E8E0084D6EE /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				FB737C65275109AB0078EB0C /* NetworkManager.swift */,
-				FBEB792727631E8E0084D6EE /* RealmManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -409,7 +406,6 @@
 				FB5E830826F4B27A000DFC8B /* MyGroupsViewController.swift in Sources */,
 				FB63FD55274951900061002F /* AnimationOpen.swift in Sources */,
 				FB737C74275285750078EB0C /* PhotoSize.swift in Sources */,
-				FBEB792827631E8E0084D6EE /* RealmManager.swift in Sources */,
 				FB737C7D275286CC0078EB0C /* GroupResponseContainer.swift in Sources */,
 				FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */,
 				FB6E0A89272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift in Sources */,

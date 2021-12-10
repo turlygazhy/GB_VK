@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class FriendsViewController: UIViewController {
     
@@ -33,10 +32,6 @@ class FriendsViewController: UIViewController {
         DispatchQueue.main.async {
             self.friends = friends
             self.tableView.reloadData()
-            let friendsRef = ThreadSafeReference(to: friends)
-            DispatchQueue(label: "fjdklsjf").async {
-                RealmManager().save(friends: friendsRef)
-            }
         }
     }
     
