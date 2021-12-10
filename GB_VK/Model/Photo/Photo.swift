@@ -11,5 +11,5 @@ import Realm
 
 @objcMembers
 class Photo: Object, Codable {
-    dynamic var sizes: [PhotoSize]
+    dynamic var sizes = List<PhotoSize>()
 }
