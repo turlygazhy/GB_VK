@@ -6,7 +6,22 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class PhotosResponse: Codable {
-    let items: [Photo]
+@objcMembers
+class PhotosResponse: Object, Codable {
+    dynamic var items = List<Photo>()
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let itemsList = try container.decode([Photo].self, forKey: .items)
+        items.append(objectsIn: itemsList)
+        super.init()
+    }
+    
+    required override init() {
+        super.init()
+    }
 }

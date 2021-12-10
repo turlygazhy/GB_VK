@@ -6,13 +6,18 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class Group: Codable {
-    let description: String?
-    let name: String
-    let photo_200: String
+@objcMembers
+class Group: Object, Codable {
+    dynamic var groupDescription: String?
+    dynamic var name: String
+    dynamic var photoUrl: String
     
-    func getPhotoUrl() -> String {
-        photo_200
+    enum CodingKeys: String, CodingKey {
+        case groupDescription = "description"
+        case name
+        case photoUrl = "photo_200"
     }
 }

@@ -6,7 +6,22 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class GroupResponse: Codable {
-    let items: [Group]
+@objcMembers
+class GroupResponse: Object, Codable {
+    dynamic var items = List<Group>()
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let itemsList = try container.decode([Group].self, forKey: .items)
+        items.append(objectsIn: itemsList)
+        super.init()
+    }
+
+    required override init() {
+        super.init()
+    }
 }

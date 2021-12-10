@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-class Photo: Codable {
-    let sizes: [PhotoSize]
+@objcMembers
+class Photo: Object, Codable {
+    dynamic var sizes = List<PhotoSize>()
 }
