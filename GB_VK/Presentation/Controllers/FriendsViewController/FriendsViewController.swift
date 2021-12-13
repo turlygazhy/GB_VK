@@ -28,15 +28,16 @@ class FriendsViewController: UIViewController {
         searchBar.delegate = self
         self.navigationController?.delegate = self
     }
+    override func viewDidDisappear(_ animated: Bool) {//todo I could not call realm saving from not main thread and put it here
+        if !friends.isEmpty {
+            RealmManager().save(friends: friends)
+        }
+    }
     
     func setFriends(friends: [User]) {
         DispatchQueue.main.async {
             self.friends = friends
             self.tableView.reloadData()
-            let friendsRef = ThreadSafeReference(to: friends)
-            DispatchQueue(label: "fjdklsjf").async {
-                RealmManager().save(friends: friendsRef)
-            }
         }
     }
     
