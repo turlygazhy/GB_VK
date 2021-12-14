@@ -13,7 +13,8 @@ class RealmManager {
     
     func save(friends: [User]) {
         do {
-            let realm = try Realm()
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)//todo where this line should be?
+            let realm = try Realm(configuration: config)
             realm.beginWrite()
             realm.add(friends)
             try realm.commitWrite()
