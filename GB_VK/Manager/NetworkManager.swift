@@ -18,7 +18,7 @@ class NetworkManager {
     static let API_GET_GROUPS = "groups.get"
     static let API_GROUPS_SEARCH = "groups.search"
     
-    static func getFriends(controller: FriendsViewController) {//todo not very good name
+    static func initFriends(controller: FriendsViewController) {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = HTTPS_SCHEME
         urlConstructor.host = VK_HOST

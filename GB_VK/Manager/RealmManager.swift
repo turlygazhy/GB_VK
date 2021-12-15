@@ -11,6 +11,8 @@ import RealmSwift
 
 class RealmManager {
     
+    var token: NotificationToken?
+    
     func save(friends: [User]) {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)//todo where this line should be?
@@ -26,10 +28,13 @@ class RealmManager {
         }
     }
     
-    func readFriends() -> [User]? {
+    func readFriends(friendsViewController: FriendsViewController) -> [User]? {
         do {
             let realm = try Realm()
             let friends = realm.objects(User.self)
+            self.token = friends.observe({ changes in
+                friendsViewController.setFriends(friends: Array(friends))
+            })
             print("Got from DB friends")
             print(friends)
             return Array(friends)

@@ -22,20 +22,18 @@ class FriendsViewController: UIViewController {
         
         
         
-        //        NetworkManager.getFriends(controller: self)
+//        NetworkManager.initFriends(controller: self)
         
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
         self.navigationController?.delegate = self
-        
-        DispatchQueue.main.async {
-            let friends = RealmManager().readFriends();
-            if friends != nil && !friends!.isEmpty {
-                self.friends = friends!
-                self.tableView.reloadData()
-            }
+       
+        let friends = RealmManager().readFriends(friendsViewController: self)
+        if friends != nil && !friends!.isEmpty {
+            self.friends = friends!
+            self.tableView.reloadData()
         }
     }
     

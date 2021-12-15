@@ -38,7 +38,7 @@ class CustomTableViewCell: UITableViewCell {
             return
         }
         
-//        DispatchQueue.global().async { [weak self] in todo does not work when read from realm
+//        DispatchQueue.global().async { [weak self] in //todo does not work when read from realm
 //            if let data = try? Data(contentsOf: URL(string: friend.photo_100!)!) {
 //                if let image = UIImage(data: data) {
 //                    DispatchQueue.main.async {
