@@ -42,6 +42,7 @@
 		FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */; };
 		FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */; };
 		FBEB792827631E8E0084D6EE /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB792727631E8E0084D6EE /* RealmManager.swift */; };
+		FBEB792A2770AA790084D6EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBEB79292770AA790084D6EE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHorisontalView.swift; sourceTree = "<group>"; };
 		FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+FullScreenView.swift"; sourceTree = "<group>"; };
 		FBEB792727631E8E0084D6EE /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		FBEB79292770AA790084D6EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				FB6E5A4626E77D8E001B0FF3 /* Presentation */,
 				FB733BDD26D3BDB400193017 /* AppDelegate */,
 				FB733BCF26D3BCC700193017 /* Main.storyboard */,
+				FBEB79292770AA790084D6EE /* GoogleService-Info.plist */,
 				FB733BE026D3BF8300193017 /* Resource */,
 				FB733BDF26D3BE9D00193017 /* Config */,
 			);
@@ -352,6 +355,7 @@
 				FB733BD326D3BCC800193017 /* Assets.xcassets in Resources */,
 				FB44F6492722DF57000BB93B /* CustomTableViewCell.xib in Resources */,
 				FB733BD126D3BCC700193017 /* Main.storyboard in Resources */,
+				FBEB792A2770AA790084D6EE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
