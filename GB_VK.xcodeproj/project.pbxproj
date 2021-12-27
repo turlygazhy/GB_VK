@@ -22,6 +22,8 @@
 		FB6E0A8E272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E0A8D272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift */; };
 		FB6E5A4926E77DB9001B0FF3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */; };
 		FB6FD113274CF17A0044DE40 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD112274CF17A0044DE40 /* Session.swift */; };
+		FB73166B2779CED600985E17 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73166A2779CED600985E17 /* Firebase.swift */; };
+		FB73166D2779D3EB00985E17 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73166C2779D3EB00985E17 /* ProfileInfoModel.swift */; };
 		FB733BCA26D3BCC700193017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB733BC926D3BCC700193017 /* AppDelegate.swift */; };
 		FB733BCC26D3BCC700193017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB733BCB26D3BCC700193017 /* SceneDelegate.swift */; };
 		FB733BD126D3BCC700193017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB733BCF26D3BCC700193017 /* Main.storyboard */; };
@@ -41,7 +43,6 @@
 		FBA90A5C273EC36400FF4F33 /* GalleryHorisontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */; };
 		FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */; };
 		FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */; };
-		FBEB792827631E8E0084D6EE /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB792727631E8E0084D6EE /* RealmManager.swift */; };
 		FBEB792A2770AA790084D6EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBEB79292770AA790084D6EE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		FB6E0A8D272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB6E5A4826E77DB9001B0FF3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FB6FD112274CF17A0044DE40 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		FB73166A2779CED600985E17 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		FB73166C2779D3EB00985E17 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
 		FB733BC626D3BCC700193017 /* GB_VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB733BC926D3BCC700193017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB733BCB26D3BCC700193017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +87,6 @@
 		FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryHorisontalView.xib; sourceTree = "<group>"; };
 		FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHorisontalView.swift; sourceTree = "<group>"; };
 		FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+FullScreenView.swift"; sourceTree = "<group>"; };
-		FBEB792727631E8E0084D6EE /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		FBEB79292770AA790084D6EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				FB737C77275286920078EB0C /* Group */,
 				FB737C752752859D0078EB0C /* User */,
 				FB737C76275285A80078EB0C /* Photo */,
+				FB73166C2779D3EB00985E17 /* ProfileInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				FB737C65275109AB0078EB0C /* NetworkManager.swift */,
-				FBEB792727631E8E0084D6EE /* RealmManager.swift */,
+				FB73166A2779CED600985E17 /* Firebase.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -413,7 +416,6 @@
 				FB5E830826F4B27A000DFC8B /* MyGroupsViewController.swift in Sources */,
 				FB63FD55274951900061002F /* AnimationOpen.swift in Sources */,
 				FB737C74275285750078EB0C /* PhotoSize.swift in Sources */,
-				FBEB792827631E8E0084D6EE /* RealmManager.swift in Sources */,
 				FB737C7D275286CC0078EB0C /* GroupResponseContainer.swift in Sources */,
 				FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */,
 				FB6E0A89272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift in Sources */,
@@ -423,11 +425,13 @@
 				FB733BCA26D3BCC700193017 /* AppDelegate.swift in Sources */,
 				FB737C7B275286BF0078EB0C /* GroupResponse.swift in Sources */,
 				FB6FD113274CF17A0044DE40 /* Session.swift in Sources */,
+				FB73166B2779CED600985E17 /* Firebase.swift in Sources */,
 				FB737C66275109AB0078EB0C /* NetworkManager.swift in Sources */,
 				FB6DC9E326F2081600AAD56D /* FriendsViewController.swift in Sources */,
 				FB44F6482722DF57000BB93B /* CustomTableViewCell.swift in Sources */,
 				FB6E0A8E272AE38C00691A08 /* FriendsViewController+UISearchBarDelegate.swift in Sources */,
 				FB737C6C27527E3D0078EB0C /* FriendsResponseContainer.swift in Sources */,
+				FB73166D2779D3EB00985E17 /* ProfileInfoModel.swift in Sources */,
 				FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */,
 				FB737C792752869F0078EB0C /* Group.swift in Sources */,
 				FB737C702752839E0078EB0C /* PhotosResponse.swift in Sources */,

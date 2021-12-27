@@ -36,6 +36,12 @@ class LoginViewController: UIViewController {
         
         webView.load(request)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NetworkManager.saveMe()
+    }
+    
 }
 
 extension LoginViewController: WKNavigationDelegate {

@@ -6,17 +6,10 @@
 //
 
 import Foundation
-import RealmSwift
-import Realm
 
-@objcMembers
-class User: Object, Codable {
-    dynamic var id: Int
-    dynamic var first_name: String
-    dynamic var last_name: String
-    dynamic var photo_100: String?
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
+class User: Codable {
+    let id: Int
+    let first_name: String
+    let last_name: String
+    let photo_100: String?
 }

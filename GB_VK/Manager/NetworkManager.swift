@@ -17,6 +17,7 @@ class NetworkManager {
     static let API_GET_PHOTOS = "photos.get"
     static let API_GET_GROUPS = "groups.get"
     static let API_GROUPS_SEARCH = "groups.search"
+    static let API_ACCOUNT_GET_PROFILE_INFO = "account.getProfileInfo"
     
     static func initFriends(controller: FriendsViewController) {
         var urlConstructor = URLComponents()
@@ -40,8 +41,38 @@ class NetworkManager {
                 let friendsResponse = try JSONDecoder().decode(FriendsResponseContainer.self, from: data!)
                 print("LOADED FRIENDS")
                 print(friendsResponse)
-                controller.setFriends(friends: Array(friendsResponse.response!.items))
+                controller.setFriends(friends: Array(friendsResponse.response.items))
             } catch (let error) {
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    static func saveMe() {
+        var urlConstructor = URLComponents()
+        urlConstructor.scheme = HTTPS_SCHEME
+        urlConstructor.host = VK_HOST
+        urlConstructor.path = METHOD_PATH + API_ACCOUNT_GET_PROFILE_INFO
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: VK_VERSION),
+        ]
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        
+        print("url \(urlConstructor.url!)")
+        
+        let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
+            do {
+                let me = try JSONDecoder().decode(ProfileInfoModel.self, from: data!)
+                print("Info about me")
+                print(me)
+                Firebase.save(me)
+            } catch (let error) {
+                print("cannot get info about me")
                 print(error)
             }
         }
