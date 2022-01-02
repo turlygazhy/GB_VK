@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class Firebase {
     
-    static func save(user: User) {
-        
+    private let ref = Database.database(url: "https://simplelogin-37a99-default-rtdb.europe-west1.firebasedatabase.app").reference(withPath: "loginedUsers")
+    
+     func save(user: FirebaseLoginedUser) {
+        let userRef = self.ref.child(user.first_name.lowercased())
+        userRef.setValue(user.toDict())
     }
 }

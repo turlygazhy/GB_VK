@@ -24,6 +24,7 @@
 		FB6FD113274CF17A0044DE40 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD112274CF17A0044DE40 /* Session.swift */; };
 		FB73166B2779CED600985E17 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73166A2779CED600985E17 /* Firebase.swift */; };
 		FB73166D2779D3EB00985E17 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73166C2779D3EB00985E17 /* ProfileInfoModel.swift */; };
+		FB7316952781536400985E17 /* FirebaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7316942781536400985E17 /* FirebaseModels.swift */; };
 		FB733BCA26D3BCC700193017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB733BC926D3BCC700193017 /* AppDelegate.swift */; };
 		FB733BCC26D3BCC700193017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB733BCB26D3BCC700193017 /* SceneDelegate.swift */; };
 		FB733BD126D3BCC700193017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB733BCF26D3BCC700193017 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		FB6FD112274CF17A0044DE40 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FB73166A2779CED600985E17 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		FB73166C2779D3EB00985E17 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
+		FB7316942781536400985E17 /* FirebaseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModels.swift; sourceTree = "<group>"; };
 		FB733BC626D3BCC700193017 /* GB_VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB733BC926D3BCC700193017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB733BCB26D3BCC700193017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				FB737C752752859D0078EB0C /* User */,
 				FB737C76275285A80078EB0C /* Photo */,
 				FB73166C2779D3EB00985E17 /* ProfileInfoModel.swift */,
+				FB7316942781536400985E17 /* FirebaseModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				FB63FD55274951900061002F /* AnimationOpen.swift in Sources */,
 				FB737C74275285750078EB0C /* PhotoSize.swift in Sources */,
 				FB737C7D275286CC0078EB0C /* GroupResponseContainer.swift in Sources */,
+				FB7316952781536400985E17 /* FirebaseModels.swift in Sources */,
 				FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */,
 				FB6E0A89272AE07700691A08 /* FriendsViewController+TableViewDataSource.swift in Sources */,
 				FB44F64C27245AD5000BB93B /* AllGroupsViewController.swift in Sources */,

@@ -67,10 +67,10 @@ class NetworkManager {
         
         let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
             do {
-                let me = try JSONDecoder().decode(ProfileInfoModel.self, from: data!)
+                let me = try JSONDecoder().decode(ProfileInfoModel.self, from: data!).response
                 print("Info about me")
                 print(me)
-                Firebase.save(me)
+                Firebase().save(user: FirebaseLoginedUser(id: me.id, first_name: me.first_name, last_name: me.last_name))
             } catch (let error) {
                 print("cannot get info about me")
                 print(error)
