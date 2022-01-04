@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class FriendsViewController: UIViewController {
     
@@ -30,17 +29,17 @@ class FriendsViewController: UIViewController {
         searchBar.delegate = self
         self.navigationController?.delegate = self
        
-        let friends = RealmManager().readFriends(friendsViewController: self)
-        if friends != nil && !friends!.isEmpty {
-            self.friends = friends!
-            self.tableView.reloadData()
-        }
+//        let friends = RealmManager().readFriends(friendsViewController: self) todo
+//        if friends != nil && !friends!.isEmpty {
+//            self.friends = friends!
+//            self.tableView.reloadData()
+//        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {//todo I could not call realm saving from not main thread and put it here
-        if !friends.isEmpty {
-            RealmManager().save(friends: friends)
-        }
+//        if !friends.isEmpty { todo
+//            RealmManager().save(friends: friends)
+//        }
     }
     
     func setFriends(friends: [User]) {

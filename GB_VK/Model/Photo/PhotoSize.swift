@@ -6,12 +6,9 @@
 //
 
 import Foundation
-import RealmSwift
-import Realm
 
-@objcMembers
-class PhotoSize: Object, Codable {
-    dynamic var height: Int
-    dynamic var width: Int
-    dynamic var url: String
+class PhotoSize: Codable {
+    let height: Int
+    let width: Int
+    let url: String
 }
