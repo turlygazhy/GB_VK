@@ -11,10 +11,9 @@ class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource = [
-        NewsItem(userAva: UIImage(named: "h1")!, username: "some name", postText: "fkdjsfkjdksfjkdsljfkdsjkl", postPicture: UIImage(named: "h2")!, likeCount: 532, commentCount: 120, repostCount: 60, viewCount: 2000),
-        NewsItem(userAva: UIImage(named: "g3")!, username: "any any", postText: "fkdjsfkjdksfjkdsfdasfdsafdsfsdafdsafdsafljfkdsjkl", postPicture: UIImage(named: "g1")!, likeCount: 574, commentCount: 850, repostCount: 90, viewCount: 3500)
-    ]
+    var dataSource = [NewsItem]()
+    var profiles = [User]()
+    var groups = [Group]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +22,23 @@ class NewsViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.separatorStyle = .none
+        NetworkManager.initNews(controller: self)
     }
     
+    func setNewsItems(newsItems: [NewsItem]) {
+        DispatchQueue.main.async {
+            self.dataSource = newsItems
+            self.tableView.reloadData()
+        }
+    }
+    
+    func setNewsProfiles(profiles: [User]) {
+        self.profiles = profiles
+    }
+    
+    func setGroups(groups: [Group]) {
+        self.groups = groups
+    }
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -36,10 +50,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRow = 2
         let newsItem = dataSource[section]
-        if newsItem.postText != nil {
+        if newsItem.getPostText() != nil {
             numberOfRow = numberOfRow + 1
         }
-        if newsItem.postPicture != nil {
+        if newsItem.getPostPictureUrl() != nil {
             numberOfRow = numberOfRow + 1
         }
         return numberOfRow
@@ -50,26 +64,26 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         if row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! ProfileTableViewCell
-            cell.userAva.image = newsItem.userAva
-            cell.username.text = newsItem.username
+            //            cell.userAva.image = newsItem.userAva todo
+            cell.username.text = newsItem.getUserName()
             return cell
         }
         if row == 1 {//todo handle case when no text or no photo
             let cell = tableView.dequeueReusableCell(withIdentifier: "textCell", for: indexPath) as! PostTextTableViewCell
-            cell.postText.text = newsItem.postText
+            cell.postText.text = newsItem.getPostText()
             return cell
         }
         if row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! PostPhotoTableViewCell
-            cell.postPhoto.image = newsItem.postPicture
+            //            cell.postPhoto.image = UIImage(data: Data()) newsItem.getPostPictureUrl() //todo
             return cell
         }
         if row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "statisticCell", for: indexPath) as! StatisticTableViewCell
-            cell.likeCount.text = newsItem.likeCount.description
-            cell.commentCount.text = newsItem.commentCount.description
-            cell.repostCount.text = newsItem.repostCount.description
-            cell.viewCount.text = newsItem.viewCount.description
+            cell.likeCount.text = newsItem.getLikesCount().description
+            cell.commentCount.text = newsItem.getCommentsCount().description
+            cell.repostCount.text = newsItem.getRepostsCount().description
+            cell.viewCount.text = newsItem.getViewsCount().description
             return cell
         }
         return UITableViewCell()

@@ -18,6 +18,7 @@ class NetworkManager {
     static let API_GET_GROUPS = "groups.get"
     static let API_GROUPS_SEARCH = "groups.search"
     static let API_ACCOUNT_GET_PROFILE_INFO = "account.getProfileInfo"
+    static let API_NEWSFEED_GET = "newsfeed.get"
     
     static func initFriends(controller: FriendsViewController) {
         var urlConstructor = URLComponents()
@@ -48,6 +49,44 @@ class NetworkManager {
         }
         
         task.resume()
+    }
+    
+    static func initNews(controller: NewsViewController) {
+        var urlConstructor = URLComponents()
+        urlConstructor.scheme = HTTPS_SCHEME
+        urlConstructor.host = VK_HOST
+        urlConstructor.path = METHOD_PATH + API_NEWSFEED_GET
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: VK_VERSION),
+            URLQueryItem(name: "count", value: "5"),
+            URLQueryItem(name: "filters", value: "post")
+        ]
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        
+        print("url \(urlConstructor.url!)")
+        
+        DispatchQueue.main.async {
+            let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
+                do {
+                    print(Session.instance.token)
+                    print(try JSONSerialization.jsonObject(with: data!, options: []))
+                    let newsItemsResponse = try JSONDecoder().decode(NewsItemResponseContainer.self, from: data!)
+                    print("LOADED NEWS")
+    //                print(newsItemsResponse)
+                    controller.setNewsItems(newsItems: newsItemsResponse.response.items)
+                    controller.setNewsProfiles(profiles: newsItemsResponse.response.profiles)
+                    controller.setGroups(groups: newsItemsResponse.response.groups)
+                } catch (let error) {
+                    print(error)
+                }
+            }
+            
+            task.resume()
+        }
+        
     }
     
     static func saveMe() {
