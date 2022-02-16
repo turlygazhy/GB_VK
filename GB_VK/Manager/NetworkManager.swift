@@ -68,7 +68,8 @@ class NetworkManager {
         
         print("url \(urlConstructor.url!)")
         
-        DispatchQueue.main.async {
+        let queue = OperationQueue()
+        queue.addOperation {
             let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
                 do {
                     print(Session.instance.token)
