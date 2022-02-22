@@ -21,7 +21,7 @@ class FriendsViewController: UIViewController {
         
         
         
-//        NetworkManager.initFriends(controller: self)
+        NetworkManager.initFriends(controller: self)
         
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
