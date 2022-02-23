@@ -56,6 +56,7 @@
 		FB7A42C027B248F8003B032C /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A42BF27B248F8003B032C /* Attachment.swift */; };
 		FB7A42C227B249D5003B032C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7A42C127B249D5003B032C /* Link.swift */; };
 		FB7B09F427BE16DE00AA3E78 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7B09F327BE16DE00AA3E78 /* AppError.swift */; };
+		FB7B09F627C60A0C00AA3E78 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7B09F527C60A0C00AA3E78 /* PhotoService.swift */; };
 		FBA90A5C273EC36400FF4F33 /* GalleryHorisontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */; };
 		FBA90A5D273EC36400FF4F33 /* GalleryHorisontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */; };
 		FBA90A5F273EC6F700FF4F33 /* GalleryViewController+FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */; };
@@ -116,6 +117,7 @@
 		FB7A42BF27B248F8003B032C /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		FB7A42C127B249D5003B032C /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		FB7B09F327BE16DE00AA3E78 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		FB7B09F527C60A0C00AA3E78 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		FBA90A5A273EC36300FF4F33 /* GalleryHorisontalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryHorisontalView.xib; sourceTree = "<group>"; };
 		FBA90A5B273EC36400FF4F33 /* GalleryHorisontalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryHorisontalView.swift; sourceTree = "<group>"; };
 		FBA90A5E273EC6F600FF4F33 /* GalleryViewController+FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+FullScreenView.swift"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			children = (
 				FB737C65275109AB0078EB0C /* NetworkManager.swift */,
 				FB73166A2779CED600985E17 /* Firebase.swift */,
+				FB7B09F527C60A0C00AA3E78 /* PhotoService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				FB6E5A4926E77DB9001B0FF3 /* LoginViewController.swift in Sources */,
 				FB7A42C027B248F8003B032C /* Attachment.swift in Sources */,
 				FB6E0A87272AE05C00691A08 /* FriendsViewController+TableViewDelegate.swift in Sources */,
+				FB7B09F627C60A0C00AA3E78 /* PhotoService.swift in Sources */,
 				FB64FA1527AD3BAA0048300C /* StatisticTableViewCell.swift in Sources */,
 				FB64FA1327AD38730048300C /* PostPhotoTableViewCell.swift in Sources */,
 				FB733BCA26D3BCC700193017 /* AppDelegate.swift in Sources */,

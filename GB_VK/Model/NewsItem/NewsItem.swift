@@ -40,8 +40,8 @@ struct NewsItem: Codable {
         return attachments?[0].link?.caption ?? "TODO"
     }
     
-    func getPostPictureUrl() -> String {
-        return attachments?[0].link?.photo.sizes[0].url ?? "TODO"
+    func getPostPictureUrl() -> String? {
+        return attachments?[0].photo?.sizes[0].url
     }
     
 //    let userAva: UIImage

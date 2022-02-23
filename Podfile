@@ -10,6 +10,7 @@ target 'GB_VK' do
 	pod 'Firebase/Storage'
 	pod 'Firebase/Database'
   pod "PromiseKit", "~> 6.8"
+  pod 'Alamofire'
   # Pods for GB_VK
 
 end
