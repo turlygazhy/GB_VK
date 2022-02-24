@@ -8,6 +8,6 @@
 import Foundation
 
 struct Link: Codable {
-    let caption: String
-    let photo: Photo
+    let caption: String?
+    let photo: Photo?
 }
