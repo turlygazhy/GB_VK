@@ -11,12 +11,16 @@ class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private var imageService: PhotoService?
+    
     var dataSource = [NewsItem]()
     var profiles = [User]()
     var groups = [Group]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageService = PhotoService(container: tableView)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -75,7 +79,12 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         if row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! PostPhotoTableViewCell
-            //            cell.postPhoto.image = UIImage(data: Data()) newsItem.getPostPictureUrl() //todo
+            
+            if let url = newsItem.getPostPictureUrl() {
+                let image = imageService?.photo(atIndexPath: indexPath, byUrl: url)
+                cell.postPhoto.image = image
+            }
+            
             return cell
         }
         if row == 3 {
