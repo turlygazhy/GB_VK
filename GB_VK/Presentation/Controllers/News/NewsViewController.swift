@@ -17,13 +17,19 @@ class NewsViewController: UIViewController {
     var profiles = [User]()
     var groups = [Group]()
     
+    var lastDate: String?
+    var nextForm = ""
+    var isLoading = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageService = PhotoService(container: tableView)
+        setupRefreshControl()
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         
         tableView.separatorStyle = .none
         NetworkManager.initNews(controller: self)
@@ -33,6 +39,7 @@ class NewsViewController: UIViewController {
         DispatchQueue.main.async {
             self.dataSource = newsItems
             self.tableView.reloadData()
+            self.lastDate = newsItems.first?.getStringDate()
         }
     }
     
@@ -42,6 +49,30 @@ class NewsViewController: UIViewController {
     
     func setGroups(groups: [Group]) {
         self.groups = groups
+    }
+    
+    fileprivate func setupRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Loading...")
+        tableView.refreshControl?.tintColor = .orange
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+    }
+    
+    @objc func refreshNews() {
+        guard let date = lastDate else {
+            tableView.refreshControl?.endRefreshing()
+            return
+        }
+        NetworkManager.initNewsWithTime(String(dataSource.first?.date ?? 0), forController: self)
+    }
+    
+    func endRefreshNews(news: [NewsItem]) {
+        DispatchQueue.main.async { [self] in
+            print("loaded news count: \(news.count)")
+            self.dataSource.insert(contentsOf: news, at: 0)
+            self.lastDate = dataSource.first?.getStringDate()
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 }
 
@@ -114,4 +145,28 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 50
     }
+}
+
+extension NewsViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxSection = indexPaths.map({ $0.section  }).max() else {
+            return
+        }
+        
+        if maxSection > dataSource.count - 3,
+            !isLoading {
+            isLoading = true
+            NetworkManager.initNewsForPrefetching(String(dataSource.first?.date ?? 0), forController: self, next_from: self.nextForm)
+        }
+    }
+    
+    func endPrefetching(news: [NewsItem]) {
+        DispatchQueue.main.async {
+            let indexSet = IndexSet(integersIn: self.dataSource.count..<self.dataSource.count + news.count)
+            self.dataSource.append(contentsOf: news)
+            self.tableView.insertSections(indexSet, with: .automatic)
+            self.tableView.reloadData()
+        }
+    }
+    
 }
