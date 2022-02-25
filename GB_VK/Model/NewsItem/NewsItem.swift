@@ -11,6 +11,7 @@ import UIKit
 struct NewsItem: Codable {
     let text: String
     let comments: Comments
+    let date: Double
     let likes: Likes
     let reposts: Reposts
     let views: Views?
@@ -44,5 +45,19 @@ struct NewsItem: Codable {
         return attachments?[0].photo?.sizes[0].url
     }
     
-//    let userAva: UIImage
+    func getStringDate() -> String? {
+        let dateFormatter = DateFormatterVK()
+        return dateFormatter.convertDate(timeIntervalSince1970: date)
+    }
+}
+
+class DateFormatterVK {
+    let dateFormatter = DateFormatter()
+    
+    func convertDate(timeIntervalSince1970: Double) -> String {
+        dateFormatter.dateFormat = "MM-dd-yyyy HH.mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        let date = Date(timeIntervalSince1970: timeIntervalSince1970)
+        return dateFormatter.string(from: date)
+    }
 }

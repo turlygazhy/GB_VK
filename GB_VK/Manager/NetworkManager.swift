@@ -120,6 +120,43 @@ class NetworkManager {
         
     }
     
+    static func initNewsWithTime(_ timeInterval1970: String, forController controller: NewsViewController) {
+        var urlConstructor = URLComponents()
+        urlConstructor.path = METHOD_PATH + API_NEWSFEED_GET
+        urlConstructor.scheme = HTTPS_SCHEME
+        urlConstructor.host = VK_HOST
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: VK_VERSION),
+            URLQueryItem(name: "count", value: "1"),
+            URLQueryItem(name: "filters", value: "post"),
+            URLQueryItem(name: "start_from", value: "next_from"),
+            URLQueryItem(name: "start_time", value: timeInterval1970)
+        ]
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        
+        print("url \(urlConstructor.url!)")
+        
+        let queue = OperationQueue()
+        queue.addOperation {
+            let task = session.dataTask(with: urlConstructor.url!) { data, response, error in
+                do {
+                    print(Session.instance.token)
+                    print(try JSONSerialization.jsonObject(with: data!, options: []))
+                    let newsItemsResponse = try JSONDecoder().decode(NewsItemResponseContainer.self, from: data!)
+                    print("LOADED NEWS")
+                    controller.endRefreshNews(news: newsItemsResponse.response.items)
+                } catch (let error) {
+                    print(error)
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    
     static func saveMe() {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = HTTPS_SCHEME

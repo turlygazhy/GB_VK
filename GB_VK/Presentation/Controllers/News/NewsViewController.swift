@@ -16,11 +16,13 @@ class NewsViewController: UIViewController {
     var dataSource = [NewsItem]()
     var profiles = [User]()
     var groups = [Group]()
+    var lastDate: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageService = PhotoService(container: tableView)
+        setupRefreshControl()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -33,6 +35,7 @@ class NewsViewController: UIViewController {
         DispatchQueue.main.async {
             self.dataSource = newsItems
             self.tableView.reloadData()
+            self.lastDate = newsItems.first?.getStringDate()
         }
     }
     
@@ -42,6 +45,30 @@ class NewsViewController: UIViewController {
     
     func setGroups(groups: [Group]) {
         self.groups = groups
+    }
+    
+    fileprivate func setupRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Loading...")
+        tableView.refreshControl?.tintColor = .orange
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+    }
+    
+    @objc func refreshNews() {
+        guard let date = lastDate else {
+            tableView.refreshControl?.endRefreshing()
+            return
+        }
+        NetworkManager.initNewsWithTime(String(dataSource.first?.date ?? 0), forController: self)
+    }
+    
+    func endRefreshNews(news: [NewsItem]) {
+        DispatchQueue.main.async { [self] in
+            print("loaded news count: \(news.count)")
+            self.dataSource.insert(contentsOf: news, at: 0)
+            self.lastDate = dataSource.first?.getStringDate()
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 }
 
