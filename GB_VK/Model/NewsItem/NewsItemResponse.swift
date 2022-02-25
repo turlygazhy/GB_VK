@@ -11,4 +11,5 @@ struct NewsItemResponse: Codable {
     let items: [NewsItem]
     let profiles: [User]
     let groups: [Group]
+    let next_form: String?
 }

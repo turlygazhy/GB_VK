@@ -16,7 +16,10 @@ class NewsViewController: UIViewController {
     var dataSource = [NewsItem]()
     var profiles = [User]()
     var groups = [Group]()
+    
     var lastDate: String?
+    var nextForm = ""
+    var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class NewsViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         
         tableView.separatorStyle = .none
         NetworkManager.initNews(controller: self)
@@ -141,4 +145,28 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 50
     }
+}
+
+extension NewsViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxSection = indexPaths.map({ $0.section  }).max() else {
+            return
+        }
+        
+        if maxSection > dataSource.count - 3,
+            !isLoading {
+            isLoading = true
+            NetworkManager.initNewsForPrefetching(String(dataSource.first?.date ?? 0), forController: self, next_from: self.nextForm)
+        }
+    }
+    
+    func endPrefetching(news: [NewsItem]) {
+        DispatchQueue.main.async {
+            let indexSet = IndexSet(integersIn: self.dataSource.count..<self.dataSource.count + news.count)
+            self.dataSource.append(contentsOf: news)
+            self.tableView.insertSections(indexSet, with: .automatic)
+            self.tableView.reloadData()
+        }
+    }
+    
 }
